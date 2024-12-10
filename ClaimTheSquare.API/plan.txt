@@ -5,7 +5,7 @@
    https://getacademy.github.io/ClaimTheSquare
 
 3: Intro til API med ASP.NET - backend til ClaimTheSquare
-   - v1: "In-memory persistens"
+   - v1: "In-memory database"
    - Brukes av flere
       - Hosting 
       - HTTP tunnels med NGROK

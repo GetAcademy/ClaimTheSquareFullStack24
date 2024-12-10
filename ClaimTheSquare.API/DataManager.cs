@@ -1,4 +1,6 @@
-﻿namespace WebApplication6
+﻿using ClaimTheSquare.API.Model;
+
+namespace WebApplication6
 {
     public class DataManager
     {

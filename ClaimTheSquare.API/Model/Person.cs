@@ -1,4 +1,4 @@
-﻿namespace WebApplication6
+﻿namespace ClaimTheSquare.API.Model
 {
     public class Person
     {
