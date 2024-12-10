@@ -1,14 +1,20 @@
+using System.Text.Json;
 using ClaimTheSquare.API.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-var textObjects = new List<TextObject>
+List<TextObject> textObjects;
+if (File.Exists("textobjects.json"))
 {
-    new TextObject{Index = 1, Text = "Per", ForeColor = "white", BackColor = "blue"},
-    new TextObject{Index = 60, Text = "Pål", ForeColor = "yellow", BackColor = "red"},
-};
+    var json = File.ReadAllText("textobjects.json");
+    textObjects = JsonSerializer.Deserialize<List<TextObject>>(json);
+}
+else
+{
+    textObjects = new List<TextObject>();
+}
 app.MapGet("/textobjects", () =>
 {
     return textObjects;
@@ -16,22 +22,8 @@ app.MapGet("/textobjects", () =>
 app.MapPost("/textobjects", (TextObject textObject) =>
 {
     textObjects.Add(textObject);
+    var json = JsonSerializer.Serialize(textObjects);
+    File.WriteAllText("textobjects.json", json);
 });
 app.Run();
 
-
-/*
- 
-app.MapGet("/numbers", () => new[] { 1, 2, 3 });
-   app.MapGet("/people", DataManager.GetPeople);
-   //app.MapGet("/weatherforecast", () =>
-   //{
-   //    return new Person[]
-   //    {
-   //        new Person{Name = "Per", BirthYear = 1980},
-   //        new Person{Name = "Pål", BirthYear = 1981},
-   //    };
-   //});
-
- 
- */
