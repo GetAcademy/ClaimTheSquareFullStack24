@@ -18,6 +18,12 @@
       - intro til helt grunnleggende SQL og MS SQL Server 
       - skrive om api til persistens med database
 
+CRUD 
+    - Create   (POST)
+    - Read     (GET)
+    - Update   (PUT)
+    - Delete   (DELETE)
+     
 
 NGROK
 Denne videoen vider hvordan man setter opp http-tunnel gratis med Ngrok: 
