@@ -10,7 +10,7 @@
       - Hosting 
       - HTTP tunnels med NGROK
    - v2: Lagring til fil
-   - v3: Database (torsdag?)
+   - v3: Database (torsdag)
       - Database
         Databasemotor
         Databasemotorprogramvare
