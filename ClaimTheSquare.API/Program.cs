@@ -1,29 +1,22 @@
-using System.Text.Json;
 using ClaimTheSquare.API.Model;
+using Dapper;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-List<TextObject> textObjects;
-if (File.Exists("textobjects.json"))
+app.MapGet("/textobjects", async () =>
 {
-    var json = File.ReadAllText("textobjects.json");
-    textObjects = JsonSerializer.Deserialize<List<TextObject>>(json);
-}
-else
-{
-    textObjects = new List<TextObject>();
-}
-app.MapGet("/textobjects", () =>
-{
+    var connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TextObjects;Integrated Security=True";
+    var sql = "SELECT * FROM TextObject";
+    var conn = new SqlConnection(connStr);
+    var textObjects = await conn.QueryAsync<TextObject>(sql);
     return textObjects;
 });
 app.MapPost("/textobjects", (TextObject textObject) =>
 {
-    textObjects.Add(textObject);
-    var json = JsonSerializer.Serialize(textObjects);
-    File.WriteAllText("textobjects.json", json);
+    //textObjects.Add(textObject);
 });
 app.Run();
 
