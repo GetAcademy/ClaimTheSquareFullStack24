@@ -3,7 +3,7 @@ using ClaimTheSquare.API.Model;
 
 namespace ClaimTheSquare.API
 {
-    public class FilePersistenseProgram
+    public class FilePersistensProgram
     {
         public static void Main(string[] args)
         {

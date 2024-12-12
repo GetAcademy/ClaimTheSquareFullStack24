@@ -2,7 +2,7 @@
 
 namespace ClaimTheSquare.API
 {
-    public class InMemoryProgram
+    public class InMemoryPersistensProgram
     {
         public static void Run(string[] args)
         {
