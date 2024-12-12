@@ -12,11 +12,13 @@
    - v2: Lagring til fil
    - v3: Database (torsdag?)
       - Database
-      - Databasemotor
-      - Databasemotorprogramvare
-      - Databasemotorinstans
+        Databasemotor
+        Databasemotorprogramvare
+        Databasemotorinstans
       - intro til helt grunnleggende SQL og MS SQL Server 
       - skrive om api til persistens med database
+        - Dapper 
+      - Ev. om relasjoner
 
 CRUD 
     - Create   (POST)
